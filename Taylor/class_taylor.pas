@@ -27,8 +27,8 @@ type
       function ln(): Real;
       function arcsen(): Real;
       function arctan(): Real;
-      function csch(): Real;
-      function cotgh(): Real;
+      function arcsenh(): Real;
+      function arctanh(): Real;
     public
 
       constructor create;
@@ -45,8 +45,8 @@ const
   IsLn = 5;
   IsArcSin = 6;
   IsArcTan = 7;
-  IsCsch = 8;
-  IsCtgh = 9;
+  IsArcSinh = 8;
+  IsArcTanh = 9;
 
   AngleSexagedecimal = 0;
   AngleRadian = 1;
@@ -68,8 +68,8 @@ begin
   FunctionList.AddObject( 'ln', TObject( IsLn ) );
   FunctionList.AddObject( 'arcsin', TObject( IsArcSin ) );
   FunctionList.AddObject( 'arctan', TObject( IsArcTan ) );
-  FunctionList.AddObject( 'csch', TObject( IsCsch ) );
-  FunctionList.AddObject( 'ctgh', TObject( IsCtgh ) );
+  FunctionList.AddObject( 'arcsinh', TObject( IsArcSinh ) );
+  FunctionList.AddObject( 'arctanh', TObject( IsArcTanh ) );
   Sequence.Add('');
   Error:= Top;
   x:= 0;
@@ -122,8 +122,8 @@ begin
         IsLn: Result := ln();
         IsArcSin: Result := ArcSen();
         IsArcTan: Result := ArcTan();
-        IsCsch: Result := Csch();
-        IsCtgh: Result := Cotgh();
+        IsArcSinh: Result := ArcSenh();
+        IsArcTanh: Result := ArcTanh();
    end;
 
 
@@ -180,7 +180,7 @@ begin
 
   repeat
     xn:= Result;
-    Result:= Result + (Power( Angle,n ) / Factorial(n));
+    Result:= Result + (Power( x,n ) / Factorial(n));
     Sequence.Add( FloatToStr( Result ) );
     if n > 0 then
        Error:= abs( Result - xn );
@@ -233,7 +233,7 @@ begin
   Result := 0;
   repeat
     xn := Result;
-    Result := Result + (Power( -1, n + 1) / n )* Power( angle , n );
+    Result := Result + (Power( -1, n + 1) / n )* Power( x , n );
     Sequence.add( FloatToStr ( Result ) );
     if n > 0 then
        Error := abs( Result - xn);
@@ -276,7 +276,7 @@ begin
   until (Error < ErrorAllowed) or (n >= Top);
 end;
 
-function Ttaylor.csch(): Real;
+function Ttaylor.arcsenh(): Real;
 var xn: Real;
     n: Integer;
 begin
@@ -293,7 +293,7 @@ begin
   until (Error < ErrorAllowed) or (n >= Top);
 end;
 
-function Ttaylor.cotgh(): Real;
+function Ttaylor.arctanh(): Real;
 var xn: Real;
     n: Integer;
 begin
