@@ -76,6 +76,7 @@ object frmTaylor: TfrmTaylor
       Width = 80
       Alignment = taRightJustify
       BorderSpacing.Left = 5
+      OnKeyPress = ediErrorKeyPress
       TabOrder = 1
       Text = '0.0001'
     end

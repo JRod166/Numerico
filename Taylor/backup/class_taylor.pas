@@ -122,7 +122,7 @@ begin
         IsLn: Result := ln();
         IsArcSin: Result := ArcSen();
         IsArcTan: Result := ArcTan();
-        IsArcSenh: Result := ArcSenh();
+        IsArcSinh: Result := ArcSenh();
         IsArcTanh: Result := ArcTanh();
    end;
 
