@@ -60,9 +60,11 @@ var
 
       with stgData do
       for i:= 1 to RowCount - 1 do begin
-          Error:= abs( sin(x) - StrToFloat( Cells[ ColSequence, i ] ) );
+          //Error:= abs( sin(x) - StrToFloat( Cells[ ColSequence, i ] ) );
+          Error:= abs( StrToFloat(Cells[ColSequence,i-1]) - StrToFloat( Cells[ ColSequence, i ] ) );
           Cells[ ColN, i ]:= IntToStr( i );
-          Cells[ ColError, i ]:= FloatToStr( Error );
+          Cells[ ColError, i ]:= FloatToStr( Error);
+//            Cells[ColError, i] := FloatToStr(sin(x)) + ' - ' +( Cells[ ColSequence, i ])+'='+FloatToStr(Error);
       end;
 
     end;
@@ -71,8 +73,8 @@ begin
   Taylor:= TTaylor.create;
   Taylor.x:= StrToFloat( ediX.Text );
   (* when we sincronize *)
-  Taylor.FunctionType:= Integer( cboFunctions.ItemIndex);
-//  Taylor.FunctionType:= Integer( cboFunctions.Items.Objects[ cboFunctions.ItemIndex ] );
+//  Taylor.FunctionType:= Integer( cboFunctions.ItemIndex);
+  Taylor.FunctionType:= Int64( cboFunctions.Items.Objects[ cboFunctions.ItemIndex ] );
   Taylor.ErrorAllowed:= StrToFloat( ediError.Text );
 
   (* when we dont sincronize *)

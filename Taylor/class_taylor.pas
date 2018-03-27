@@ -70,10 +70,9 @@ begin
   FunctionList.AddObject( 'arctan', TObject( IsArcTan ) );
   FunctionList.AddObject( 'arcsinh', TObject( IsArcSinh ) );
   FunctionList.AddObject( 'arctanh', TObject( IsArcTanh ) );
-  Sequence.Add('');
+  Sequence.Add('0');
   Error:= Top;
   x:= 0;
-
 end;
 
 destructor TTaylor.Destroy;

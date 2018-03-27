@@ -65,7 +65,7 @@ begin
   FunctionList.AddObject( 'exp', TObject( IsExp ) );
   FunctionList.AddObject( 'sinh', TObject( IsSinh ) );
   FunctionList.AddObject( 'cosh', TObject( IsCosh ) );
-  FunctionList.AddObject( 'ln', TObject( IsLn ) );
+  FunctionList.AddObject( 'ln(x+1)', TObject( IsLn ) );
   FunctionList.AddObject( 'arcsin', TObject( IsArcSin ) );
   FunctionList.AddObject( 'arctan', TObject( IsArcTan ) );
   FunctionList.AddObject( 'arcsinh', TObject( IsArcSinh ) );
@@ -73,7 +73,6 @@ begin
   Sequence.Add('');
   Error:= Top;
   x:= 0;
-
 end;
 
 destructor TTaylor.Destroy;
