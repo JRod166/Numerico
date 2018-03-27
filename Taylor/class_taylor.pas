@@ -81,9 +81,10 @@ begin
   FunctionList.Destroy;
 end;
 
-function Power( b: Real; n: Integer ): Real;
+function Power( b: Double; n: Integer ): Double;
 var i: Integer;
 begin
+//  ShowMessage(FloatToStr(b) + '^' + FloatToStr(n));
    Result:= 1;
    for i:= 1 to n do
       Result:= Result * b;
@@ -104,6 +105,21 @@ begin
 
 end;
 
+function Module(a: Real; b: Double): Real;
+var x: Real;
+    i: Real;
+begin
+   x:=a;
+   i:=0;
+   repeat
+     x:=x-b;
+     i:=i+1;
+   until (x<0);
+   i:=i-1;
+   i:=i*b;
+   Result := a-i;
+end;
+
 function TTaylor.Execute( ): Real;
 begin
 
@@ -111,7 +127,7 @@ begin
         AngleRadian: Angle:= x;
         AngleSexagedecimal: Angle:=x * pi/180;
    end;
-
+   Angle := Module(Angle ,(2*pi));
    case FunctionType of
         IsSin: Result:= sen();
         IsCos: Result:= cos();
@@ -124,8 +140,6 @@ begin
         IsArcSinh: Result := ArcSenh();
         IsArcTanh: Result := ArcTanh();
    end;
-
-
 end;
 
 function TTaylor.sen(): Real;

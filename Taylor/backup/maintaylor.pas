@@ -73,8 +73,8 @@ begin
   Taylor:= TTaylor.create;
   Taylor.x:= StrToFloat( ediX.Text );
   (* when we sincronize *)
-  Taylor.FunctionType:= Integer( cboFunctions.ItemIndex);
-//  Taylor.FunctionType:= Integer( cboFunctions.Items.Objects[ cboFunctions.ItemIndex ] );
+//  Taylor.FunctionType:= Integer( cboFunctions.ItemIndex);
+  Taylor.FunctionType:= Int64( cboFunctions.Items.Objects[ cboFunctions.ItemIndex ] );
   Taylor.ErrorAllowed:= StrToFloat( ediError.Text );
 
   (* when we dont sincronize *)
@@ -92,7 +92,7 @@ begin
       Cols[ ColSequence ].Assign( Taylor.Sequence );
   end;
   FillStringGrid;
-
+  Taylor.Destroy;
 end;
 
 procedure TfrmTaylor.cboFunctionsChange(Sender: TObject);
@@ -137,6 +137,7 @@ begin
    Taylor:= TTaylor.create;
    cboFunctions.Items.Assign( Taylor.FunctionList );
    cboFunctions.ItemIndex:= 0;
+   Taylor.Destroy;
 end;
 
 procedure TfrmTaylor.FormDestroy(Sender: TObject);

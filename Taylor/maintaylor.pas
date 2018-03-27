@@ -92,7 +92,7 @@ begin
       Cols[ ColSequence ].Assign( Taylor.Sequence );
   end;
   FillStringGrid;
-
+  Taylor.Destroy;
 end;
 
 procedure TfrmTaylor.cboFunctionsChange(Sender: TObject);
@@ -137,6 +137,7 @@ begin
    Taylor:= TTaylor.create;
    cboFunctions.Items.Assign( Taylor.FunctionList );
    cboFunctions.ItemIndex:= 0;
+
 end;
 
 procedure TfrmTaylor.FormDestroy(Sender: TObject);
