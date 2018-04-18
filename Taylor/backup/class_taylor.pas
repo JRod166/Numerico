@@ -81,7 +81,7 @@ begin
   FunctionList.Destroy;
 end;
 
-function Power( b: Double; n: Integer ): Double;
+function Power( b: Double; n: Integer ): Double Double;
 var i: Integer;
 begin
 //  ShowMessage(FloatToStr(b) + '^' + FloatToStr(n));
@@ -116,11 +116,8 @@ begin
      i:=i+1;
    until (x<0);
    i:=i-1;
-   ShowMessage('a/b=x='+FloatTostr(i));
    i:=i*b;
-   ShowMessage('x*b=x='+FloatTostr(i));
    Result := a-i;
-   ShowMessage(FloatToStr(a) +' Mod '+FloatToStr(b)+' = '+FloatToStr(a-i));
 end;
 
 function TTaylor.Execute( ): Real;

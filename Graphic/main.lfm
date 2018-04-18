@@ -85,6 +85,32 @@ object frmMain: TfrmMain
       OnClick = btnPointClick
       TabOrder = 6
     end
+    object btnIntersec: TButton
+      Left = 67
+      Height = 25
+      Top = 307
+      Width = 75
+      Caption = 'Intersections'
+      OnClick = btnIntersecClick
+      TabOrder = 7
+    end
+    object ediPresicion: TEdit
+      Left = 96
+      Height = 23
+      Hint = 'Presición'
+      Top = 280
+      Width = 80
+      TabOrder = 8
+      Text = '0.00001'
+    end
+    object Label1: TLabel
+      Left = 32
+      Height = 15
+      Top = 288
+      Width = 54
+      Caption = 'Presición: '
+      ParentColor = False
+    end
   end
   object chartGraphics: TChart
     Left = 0
@@ -114,6 +140,7 @@ object frmMain: TfrmMain
     Title.Text.Strings = (
       'TAChart'
     )
+    Toolset = ChartToolset1
     Align = alClient
     object chartGraphicsFuncSeries1: TFuncSeries
       Active = False
@@ -132,6 +159,14 @@ object frmMain: TfrmMain
       Pointer.Brush.Color = 13553407
       Pointer.Pen.Color = clRed
       Pointer.Style = psCircle
+    end
+  end
+  object ChartToolset1: TChartToolset
+    left = 64
+    top = 16
+    object ChartToolset1DataPointClickTool1: TDataPointClickTool
+      Shift = [ssLeft]
+      OnPointClick = ChartToolset1DataPointClickTool1PointClick
     end
   end
 end
