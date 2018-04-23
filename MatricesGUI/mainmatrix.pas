@@ -113,6 +113,7 @@ type
     procedure ediMultColsAChange(Sender: TObject);
     procedure ediMultColsBChange(Sender: TObject);
     procedure ediMultFilasAChange(Sender: TObject);
+    procedure ediNewtChange(Sender: TObject);
     procedure ediPotOrdenChange(Sender: TObject);
     procedure ediSRColsChange(Sender: TObject);
     procedure ediSRFilasChange(Sender: TObject);
@@ -347,6 +348,20 @@ begin
      stgMultMatrixC.RowCount:=fil;
 end;
 
+procedure TForm1.ediNewtChange(Sender: TObject);
+var
+  fila: String;
+  fil: Integer;
+begin
+     fila:=ediNewt.Text;
+     if(fila='')then fil:=0
+     else fil:=StrToInt(fila);
+     stgNewtFunctions.RowCount:=fil;
+     stgNewtVariables.RowCount:=fil;
+     stgNewtValores.RowCount:=fil;
+
+end;
+
 procedure TForm1.ediPotOrdenChange(Sender: TObject);
 var
   fila: String;
@@ -507,12 +522,13 @@ var
   val_list: TArrReal;
   Error: Real;
   Cantidad,i,j: Integer;
-  Sequence: TStringList;
+  Sequence,errores: TStringList;
   Newt: TNewton;
 begin
      Error:=StrToFloat(ediNewt1.text);
      Newt:=TNewton.create();
      Sequence:=TStringList.Create();
+     errores:=TStringList.Create();
      fx_list:= TArrString.Create();
      var_list:= TArrString.Create();
      val_list:=TArrReal.Create();
@@ -522,10 +538,13 @@ begin
               var_list.push(stgNewtVariables.Cells[0,i]);
               val_list.push(StrToInt(stgNewtValores.Cells[0,i]));
      end;
-     Sequence:=Newt.execute(fx_list,var_list,val_list,Cantidad,Error);
+     Sequence:=Newt.execute(fx_list,var_list,val_list,Cantidad,Error,errores);
      with stgNewtonResults do begin
           RowCount:=Sequence.Count;
           Cols[1].Assign(Sequence);
+          Cols[2].Assign(errores);
+          for i:=1 to RowCount-1 do
+                   Cells[0,i]:=IntToStr(i);
      end;
 
 

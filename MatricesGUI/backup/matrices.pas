@@ -154,6 +154,7 @@ begin
   res:=TMatrices.create(fil,col);
   adj:=Adjunta(B);
   det:=Determinante(B);
+  ShowMessage('Determinante='+FloatToStr(det));
   if det=0 then begin
      ShowMessage('Matriz no invertible, determinante = 0');
      result:=res;
@@ -214,6 +215,7 @@ var
   temporal: Real;
 begin
   orden:=Length(A);
+  temporal:=0;
   for i:=0 to orden-1 do
       temporal:= temporal + A[i][i];
   Result:=temporal;

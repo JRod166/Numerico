@@ -42,8 +42,6 @@ begin     //fil = cant de funciones //col = cant de variables
 
   for i:=0 to columnas-1 do
       m_function.AddVariable(var_List.get(i),val_List.get(i));
-
-  showmessage('added variables');
   aux_mat:=TMatrices.create(filas,columnas);
   for i:=0 to filas-1 do begin
       m_function.Expression:=fx_List.get(i);

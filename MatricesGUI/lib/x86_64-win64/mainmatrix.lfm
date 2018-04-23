@@ -752,7 +752,7 @@ object Form1: TForm1
         Height = 23
         Top = 8
         Width = 80
-        OnChange = ediJacobChange
+        OnChange = ediNewtChange
         TabOrder = 0
         Text = '2'
       end
@@ -848,15 +848,14 @@ object Form1: TForm1
         Height = 224
         Top = 192
         Width = 652
-        AutoFillColumns = True
         ColCount = 3
         FixedCols = 0
         RowCount = 10
         TabOrder = 5
         ColWidths = (
-          216
-          216
-          216
+          210
+          210
+          211
         )
         Cells = (
           3
