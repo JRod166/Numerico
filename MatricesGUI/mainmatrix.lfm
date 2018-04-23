@@ -1,0 +1,893 @@
+object Form1: TForm1
+  Left = 230
+  Height = 481
+  Top = 186
+  Width = 737
+  Caption = 'Form1'
+  ClientHeight = 481
+  ClientWidth = 737
+  LCLVersion = '1.8.2.0'
+  object PageControl1: TPageControl
+    Left = 24
+    Height = 456
+    Top = 16
+    Width = 688
+    ActivePage = TabSheet8
+    TabIndex = 7
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Suma y resta'
+      ClientHeight = 428
+      ClientWidth = 680
+      object stgSRMatrixA: TStringGrid
+        Left = 32
+        Height = 176
+        Top = 32
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 0
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnSuma: TButton
+        Left = 288
+        Height = 25
+        Top = 56
+        Width = 75
+        Caption = '+'
+        OnClick = btnSumaClick
+        TabOrder = 1
+      end
+      object btnResta: TButton
+        Left = 288
+        Height = 25
+        Top = 99
+        Width = 75
+        Caption = '-'
+        OnClick = btnRestaClick
+        TabOrder = 2
+      end
+      object ediSRFilas: TEdit
+        Left = 312
+        Height = 23
+        Top = 144
+        Width = 51
+        OnChange = ediSRFilasChange
+        TabOrder = 3
+        Text = '2'
+      end
+      object ediSRCols: TEdit
+        Left = 312
+        Height = 23
+        Top = 176
+        Width = 51
+        OnChange = ediSRColsChange
+        TabOrder = 4
+        Text = '2'
+      end
+      object Label1: TLabel
+        Left = 279
+        Height = 15
+        Top = 152
+        Width = 26
+        Caption = 'Filas:'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        Left = 248
+        Height = 15
+        Top = 184
+        Width = 57
+        Caption = 'Columnas:'
+        ParentColor = False
+      end
+      object stgSRMatrixB: TStringGrid
+        Left = 432
+        Height = 176
+        Top = 32
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 5
+      end
+      object stgSRMatrixC: TStringGrid
+        Left = 232
+        Height = 176
+        Top = 232
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        RowCount = 2
+        TabOrder = 6
+        ColWidths = (
+          102
+          102
+        )
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Inversa, determinante y traza'
+      ClientHeight = 428
+      ClientWidth = 680
+      object ediIDFilas: TEdit
+        Left = 312
+        Height = 23
+        Top = 144
+        Width = 51
+        OnChange = ediIDFilasChange
+        TabOrder = 0
+        Text = '2'
+      end
+      object Label4: TLabel
+        Left = 272
+        Height = 15
+        Top = 152
+        Width = 36
+        Caption = 'Orden:'
+        ParentColor = False
+      end
+      object stgIDMatrixA: TStringGrid
+        Left = 32
+        Height = 176
+        Top = 32
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 1
+      end
+      object stgIDMatrixB: TStringGrid
+        Left = 436
+        Height = 176
+        Top = 32
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 2
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnInversa: TButton
+        Left = 288
+        Height = 25
+        Top = 40
+        Width = 83
+        Caption = 'Inversa'
+        OnClick = btnInversaClick
+        TabOrder = 3
+      end
+      object btnDet: TButton
+        Left = 288
+        Height = 25
+        Top = 72
+        Width = 83
+        Caption = 'Determinante'
+        OnClick = btnDetClick
+        TabOrder = 4
+      end
+      object Resultados: TMemo
+        Left = 32
+        Height = 178
+        Top = 240
+        Width = 624
+        Lines.Strings = (
+          'Determinantes'
+        )
+        ReadOnly = True
+        TabOrder = 5
+      end
+      object btnTraza: TButton
+        Left = 288
+        Height = 25
+        Top = 104
+        Width = 83
+        Caption = 'Traza'
+        OnClick = btnTrazaClick
+        TabOrder = 6
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Transpuesta'
+      ClientHeight = 428
+      ClientWidth = 680
+      object stgTransMatrixA: TStringGrid
+        Left = 48
+        Height = 176
+        Top = 112
+        Width = 208
+        AutoFillColumns = True
+        ColCount = 2
+        DefaultColWidth = 22
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 0
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object Label5: TLabel
+        Left = 311
+        Height = 15
+        Top = 216
+        Width = 26
+        Caption = 'Filas:'
+        ParentColor = False
+      end
+      object ediTransFilas: TEdit
+        Left = 344
+        Height = 23
+        Top = 208
+        Width = 51
+        OnChange = ediTransFilasChange
+        TabOrder = 1
+        Text = '2'
+      end
+      object ediTransCols: TEdit
+        Left = 344
+        Height = 23
+        Top = 240
+        Width = 51
+        OnChange = ediTransColsChange
+        TabOrder = 2
+        Text = '2'
+      end
+      object Label6: TLabel
+        Left = 280
+        Height = 15
+        Top = 248
+        Width = 57
+        Caption = 'Columnas:'
+        ParentColor = False
+      end
+      object stgTransMatrixB: TStringGrid
+        Left = 432
+        Height = 176
+        Top = 112
+        Width = 208
+        AutoFillColumns = True
+        ColCount = 2
+        DefaultColWidth = 22
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 3
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnTrans: TButton
+        Left = 315
+        Height = 25
+        Top = 150
+        Width = 75
+        Caption = 'Transpuesta'
+        OnClick = btnTransClick
+        TabOrder = 4
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Multiplicación y división'
+      ClientHeight = 428
+      ClientWidth = 680
+      object stgMultMatrixA: TStringGrid
+        Left = 32
+        Height = 176
+        Top = 32
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 0
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnMult: TButton
+        Left = 288
+        Height = 25
+        Top = 56
+        Width = 75
+        Caption = '*'
+        OnClick = btnMultClick
+        TabOrder = 1
+      end
+      object ediMultFilasA: TEdit
+        Left = 320
+        Height = 23
+        Top = 104
+        Width = 51
+        OnChange = ediMultFilasAChange
+        TabOrder = 2
+        Text = '2'
+      end
+      object ediMultColsA: TEdit
+        Left = 320
+        Height = 23
+        Top = 136
+        Width = 51
+        OnChange = ediMultColsAChange
+        TabOrder = 3
+        Text = '2'
+      end
+      object Label3: TLabel
+        Left = 268
+        Height = 15
+        Top = 112
+        Width = 37
+        Caption = 'Filas A:'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 248
+        Height = 15
+        Top = 144
+        Width = 68
+        Caption = 'Columnas A:'
+        ParentColor = False
+      end
+      object stgMultMatrixB: TStringGrid
+        Left = 432
+        Height = 176
+        Top = 32
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 4
+      end
+      object stgMultMatrixC: TStringGrid
+        Left = 232
+        Height = 176
+        Top = 232
+        Width = 208
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        RowCount = 2
+        TabOrder = 5
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object ediMultColsB: TEdit
+        Left = 320
+        Height = 23
+        Top = 168
+        Width = 51
+        OnChange = ediMultColsBChange
+        TabOrder = 6
+        Text = '2'
+      end
+      object Label8: TLabel
+        Left = 248
+        Height = 15
+        Top = 176
+        Width = 67
+        Caption = 'Columnas B:'
+        ParentColor = False
+      end
+      object btnDiv: TButton
+        Left = 288
+        Height = 25
+        Top = 24
+        Width = 75
+        Caption = '/'
+        OnClick = btnDivClick
+        TabOrder = 7
+      end
+    end
+    object TabSheet5: TTabSheet
+      Caption = 'M Escalar'
+      ClientHeight = 428
+      ClientWidth = 680
+      object stgMEMatrixA: TStringGrid
+        Left = 48
+        Height = 176
+        Top = 112
+        Width = 208
+        AutoFillColumns = True
+        ColCount = 2
+        DefaultColWidth = 22
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 0
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnMEscalar: TButton
+        Left = 315
+        Height = 25
+        Top = 128
+        Width = 75
+        Caption = 'Mult. Escalar'
+        OnClick = btnMEscalarClick
+        TabOrder = 1
+      end
+      object ediMEFilas: TEdit
+        Left = 344
+        Height = 23
+        Top = 208
+        Width = 51
+        OnChange = ediMEFilasChange
+        TabOrder = 2
+        Text = '2'
+      end
+      object Label9: TLabel
+        Left = 311
+        Height = 15
+        Top = 216
+        Width = 26
+        Caption = 'Filas:'
+        ParentColor = False
+      end
+      object Label10: TLabel
+        Left = 280
+        Height = 15
+        Top = 248
+        Width = 57
+        Caption = 'Columnas:'
+        ParentColor = False
+      end
+      object ediMECols: TEdit
+        Left = 344
+        Height = 23
+        Top = 240
+        Width = 51
+        OnChange = ediMECols1Change
+        TabOrder = 3
+        Text = '2'
+      end
+      object stgMEMatrixB: TStringGrid
+        Left = 432
+        Height = 176
+        Top = 112
+        Width = 208
+        AutoFillColumns = True
+        ColCount = 2
+        DefaultColWidth = 22
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 4
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object ediMEEscalar: TEdit
+        Left = 344
+        Height = 23
+        Top = 176
+        Width = 51
+        TabOrder = 5
+        Text = '2'
+      end
+      object Label11: TLabel
+        Left = 298
+        Height = 15
+        Top = 184
+        Width = 39
+        Caption = 'Escalar:'
+        ParentColor = False
+      end
+    end
+    object TabSheet6: TTabSheet
+      Caption = 'Potencia'
+      ClientHeight = 428
+      ClientWidth = 680
+      object stgPotMatrixA: TStringGrid
+        Left = 48
+        Height = 176
+        Top = 112
+        Width = 208
+        AutoFillColumns = True
+        ColCount = 2
+        DefaultColWidth = 22
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 0
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnPotencia: TButton
+        Left = 315
+        Height = 25
+        Top = 128
+        Width = 75
+        Caption = '^'
+        OnClick = btnPotenciaClick
+        TabOrder = 1
+      end
+      object Label12: TLabel
+        Left = 288
+        Height = 15
+        Top = 184
+        Width = 49
+        Caption = 'Potencia:'
+        ParentColor = False
+      end
+      object Label13: TLabel
+        Left = 301
+        Height = 15
+        Top = 216
+        Width = 36
+        Caption = 'Orden:'
+        ParentColor = False
+      end
+      object ediPotOrden: TEdit
+        Left = 344
+        Height = 23
+        Top = 208
+        Width = 51
+        OnChange = ediPotOrdenChange
+        TabOrder = 2
+        Text = '2'
+      end
+      object ediPot: TEdit
+        Left = 344
+        Height = 23
+        Top = 176
+        Width = 51
+        TabOrder = 3
+        Text = '2'
+      end
+      object stgPotMatrixB: TStringGrid
+        Left = 432
+        Height = 176
+        Top = 112
+        Width = 208
+        AutoFillColumns = True
+        ColCount = 2
+        DefaultColWidth = 22
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 4
+        ColWidths = (
+          102
+          102
+        )
+      end
+    end
+    object TabSheet7: TTabSheet
+      Caption = 'Jacobiana'
+      ClientHeight = 428
+      ClientWidth = 680
+      object stgJacobFunctions: TStringGrid
+        Left = 8
+        Height = 96
+        Top = 80
+        Width = 504
+        AutoFillColumns = True
+        ColCount = 1
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 0
+        ColWidths = (
+          500
+        )
+      end
+      object Label14: TLabel
+        Left = 8
+        Height = 15
+        Top = 16
+        Width = 133
+        Caption = '# De funciones/ variables'
+        ParentColor = False
+      end
+      object ediJacob: TEdit
+        Left = 160
+        Height = 23
+        Top = 8
+        Width = 80
+        OnChange = ediJacobChange
+        TabOrder = 1
+        Text = '2'
+      end
+      object stgJacobMatrix: TStringGrid
+        Left = 192
+        Height = 232
+        Top = 192
+        Width = 312
+        ColCount = 2
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        RowCount = 2
+        TabOrder = 2
+        ColWidths = (
+          102
+          102
+        )
+      end
+      object btnJacob: TButton
+        Left = 376
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = 'Jacobiana'
+        OnClick = btnJacobClick
+        TabOrder = 3
+      end
+      object stgJacobVariables: TStringGrid
+        Left = 536
+        Height = 96
+        Top = 80
+        Width = 52
+        AutoFillColumns = True
+        ColCount = 1
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 4
+        ColWidths = (
+          48
+        )
+      end
+      object Label15: TLabel
+        Left = 8
+        Height = 15
+        Top = 56
+        Width = 57
+        Caption = 'Funciones:'
+        ParentColor = False
+      end
+      object Label16: TLabel
+        Left = 536
+        Height = 15
+        Top = 56
+        Width = 49
+        Caption = 'Variables:'
+        ParentColor = False
+      end
+      object stgJacobValores: TStringGrid
+        Left = 616
+        Height = 96
+        Top = 80
+        Width = 52
+        AutoFillColumns = True
+        ColCount = 1
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 5
+        ColWidths = (
+          48
+        )
+      end
+      object Label17: TLabel
+        Left = 616
+        Height = 15
+        Top = 56
+        Width = 40
+        Caption = 'Valores:'
+        ParentColor = False
+      end
+    end
+    object TabSheet8: TTabSheet
+      Caption = 'Newton Rhapson'
+      ClientHeight = 428
+      ClientWidth = 680
+      object Label18: TLabel
+        Left = 8
+        Height = 15
+        Top = 16
+        Width = 133
+        Caption = '# De funciones/ variables'
+        ParentColor = False
+      end
+      object ediNewt: TEdit
+        Left = 160
+        Height = 23
+        Top = 8
+        Width = 80
+        OnChange = ediJacobChange
+        TabOrder = 0
+        Text = '2'
+      end
+      object btnNewt: TButton
+        Left = 440
+        Height = 25
+        Top = 8
+        Width = 128
+        Caption = 'Newton Rhapson'
+        OnClick = btnNewtClick
+        TabOrder = 1
+      end
+      object Label19: TLabel
+        Left = 8
+        Height = 15
+        Top = 56
+        Width = 57
+        Caption = 'Funciones:'
+        ParentColor = False
+      end
+      object stgNewtFunctions: TStringGrid
+        Left = 8
+        Height = 96
+        Top = 80
+        Width = 504
+        AutoFillColumns = True
+        ColCount = 1
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 2
+        ColWidths = (
+          500
+        )
+      end
+      object Label20: TLabel
+        Left = 536
+        Height = 15
+        Top = 56
+        Width = 49
+        Caption = 'Variables:'
+        ParentColor = False
+      end
+      object stgNewtVariables: TStringGrid
+        Left = 536
+        Height = 96
+        Top = 80
+        Width = 52
+        AutoFillColumns = True
+        ColCount = 1
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 3
+        ColWidths = (
+          48
+        )
+      end
+      object Label21: TLabel
+        Left = 616
+        Height = 30
+        Top = 48
+        Width = 45
+        Caption = 'Valores'#13#10'iniciales:'
+        ParentColor = False
+      end
+      object stgNewtValores: TStringGrid
+        Left = 616
+        Height = 96
+        Top = 80
+        Width = 52
+        AutoFillColumns = True
+        ColCount = 1
+        DefaultColWidth = 100
+        FixedCols = 0
+        FixedRows = 0
+        GridLineWidth = 3
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+        RowCount = 2
+        TabOrder = 4
+        ColWidths = (
+          48
+        )
+      end
+      object stgNewtonResults: TStringGrid
+        Left = 16
+        Height = 224
+        Top = 192
+        Width = 652
+        AutoFillColumns = True
+        ColCount = 3
+        FixedCols = 0
+        RowCount = 10
+        TabOrder = 5
+        ColWidths = (
+          216
+          216
+          216
+        )
+        Cells = (
+          3
+          0
+          0
+          'n'
+          1
+          0
+          'Xn'
+          2
+          0
+          'Error'
+        )
+      end
+      object Label22: TLabel
+        Left = 256
+        Height = 15
+        Top = 16
+        Width = 28
+        Caption = 'Error:'
+        ParentColor = False
+      end
+      object ediNewt1: TEdit
+        Left = 296
+        Height = 23
+        Top = 8
+        Width = 80
+        OnChange = ediJacobChange
+        TabOrder = 6
+        Text = '0.00001'
+      end
+    end
+  end
+end

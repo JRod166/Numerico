@@ -8,8 +8,8 @@
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="126"/>
-        <CursorPos X="39" Y="126"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="67" Y="9"/>
         <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -17,7 +17,6 @@
         <Filename Value="matrices.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Matrices"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="93"/>
         <CursorPos X="8" Y="106"/>

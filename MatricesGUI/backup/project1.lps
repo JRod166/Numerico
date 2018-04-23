@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="6">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="5"/>
+        <CursorPos X="14" Y="9"/>
+        <UsageCount Value="32"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="mainmatrix.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="513"/>
+        <CursorPos X="52" Y="523"/>
+        <UsageCount Value="32"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="matrices.pas"/>
+        <UnitName Value="Matrices"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="74"/>
+        <CursorPos Y="84"/>
+        <UsageCount Value="16"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="parsemath.pas"/>
+        <UnitName Value="ParseMath"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="46"/>
+        <CursorPos Y="54"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="jacobiana.pas"/>
+        <UnitName Value="Jacobiana"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="19"/>
+        <CursorPos X="104" Y="30"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="newton.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Newton"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="55"/>
+        <CursorPos X="15" Y="63"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit5>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="newton.pas"/>
+        <Caret Line="28" Column="2" TopLine="16"/>
+      </Position1>
+      <Position2>
+        <Filename Value="newton.pas"/>
+        <Caret Line="26" Column="20" TopLine="18"/>
+      </Position2>
+      <Position3>
+        <Filename Value="newton.pas"/>
+        <Caret Line="30" TopLine="23"/>
+      </Position3>
+      <Position4>
+        <Filename Value="newton.pas"/>
+        <Caret Line="15" Column="36" TopLine="20"/>
+      </Position4>
+      <Position5>
+        <Filename Value="newton.pas"/>
+        <Caret Line="33" Column="121" TopLine="26"/>
+      </Position5>
+      <Position6>
+        <Filename Value="newton.pas"/>
+        <Caret Line="50" Column="18" TopLine="42"/>
+      </Position6>
+      <Position7>
+        <Filename Value="newton.pas"/>
+        <Caret Line="49" Column="56" TopLine="41"/>
+      </Position7>
+      <Position8>
+        <Filename Value="newton.pas"/>
+        <Caret Line="56" Column="19" TopLine="48"/>
+      </Position8>
+      <Position9>
+        <Filename Value="newton.pas"/>
+        <Caret Line="64" Column="66" TopLine="54"/>
+      </Position9>
+      <Position10>
+        <Filename Value="newton.pas"/>
+        <Caret Line="45" Column="31" TopLine="58"/>
+      </Position10>
+      <Position11>
+        <Filename Value="newton.pas"/>
+        <Caret Line="70" Column="26" TopLine="62"/>
+      </Position11>
+      <Position12>
+        <Filename Value="newton.pas"/>
+        <Caret Line="72" Column="57" TopLine="64"/>
+      </Position12>
+      <Position13>
+        <Filename Value="newton.pas"/>
+        <Caret Line="74" Column="11" TopLine="66"/>
+      </Position13>
+      <Position14>
+        <Filename Value="newton.pas"/>
+        <Caret Line="88" Column="41" TopLine="72"/>
+      </Position14>
+      <Position15>
+        <Filename Value="newton.pas"/>
+        <Caret Line="83" Column="33" TopLine="75"/>
+      </Position15>
+      <Position16>
+        <Filename Value="mainmatrix.pas"/>
+        <Caret Line="513" Column="37" TopLine="506"/>
+      </Position16>
+      <Position17>
+        <Filename Value="mainmatrix.pas"/>
+        <Caret Line="537" TopLine="530"/>
+      </Position17>
+      <Position18>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="10" Column="21" TopLine="2"/>
+      </Position18>
+      <Position19>
+        <Filename Value="mainmatrix.pas"/>
+        <Caret Line="523" Column="52" TopLine="515"/>
+      </Position19>
+      <Position20>
+        <Filename Value="parsemath.pas"/>
+        <Caret Line="156" Column="21" TopLine="156"/>
+      </Position20>
+      <Position21>
+        <Filename Value="newton.pas"/>
+        <Caret Line="62" Column="19" TopLine="57"/>
+      </Position21>
+      <Position22>
+        <Filename Value="newton.pas"/>
+        <Caret Line="51" Column="58" TopLine="41"/>
+      </Position22>
+      <Position23>
+        <Filename Value="newton.pas"/>
+        <Caret Line="8" Column="72"/>
+      </Position23>
+      <Position24>
+        <Filename Value="newton.pas"/>
+        <Caret Line="51" Column="69" TopLine="43"/>
+      </Position24>
+      <Position25>
+        <Filename Value="newton.pas"/>
+        <Caret Line="40" Column="19" TopLine="28"/>
+      </Position25>
+      <Position26>
+        <Filename Value="newton.pas"/>
+        <Caret Line="50" Column="33" TopLine="40"/>
+      </Position26>
+      <Position27>
+        <Filename Value="newton.pas"/>
+        <Caret Line="52" Column="55" TopLine="42"/>
+      </Position27>
+      <Position28>
+        <Filename Value="parsemath.pas"/>
+        <Caret Line="54" TopLine="46"/>
+      </Position28>
+      <Position29>
+        <Filename Value="newton.pas"/>
+        <Caret Line="60" Column="34" TopLine="53"/>
+      </Position29>
+      <Position30>
+        <Filename Value="newton.pas"/>
+        <Caret Line="63" Column="88" TopLine="55"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

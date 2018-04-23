@@ -123,7 +123,7 @@ type
              MatricA.printMatriz();
          end;
          4: begin
-            MatricA:=MatricA.Division(MatricA,MatricB);
+            MatricA:=MatricA.Division(MatricB);
             WriteLn('Resultado:') ;
             MatricA.printMatriz();
          end;
