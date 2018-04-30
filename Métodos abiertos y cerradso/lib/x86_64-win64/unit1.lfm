@@ -1,0 +1,150 @@
+object Form1: TForm1
+  Left = 206
+  Height = 435
+  Top = 178
+  Width = 643
+  Caption = 'Form1'
+  ClientHeight = 435
+  ClientWidth = 643
+  OnCreate = FormCreate
+  LCLVersion = '1.8.2.0'
+  object PageControl1: TPageControl
+    Left = 8
+    Height = 421
+    Top = 8
+    Width = 627
+    ActivePage = TabSheet1
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Métodos cerrados'
+      ClientHeight = 393
+      ClientWidth = 619
+      object ediFunCerrados: TEdit
+        Left = 56
+        Height = 23
+        Top = 24
+        Width = 456
+        AutoSize = False
+        TabOrder = 0
+        Text = 'x^2-1'
+      end
+      object Label1: TLabel
+        Left = 24
+        Height = 15
+        Top = 32
+        Width = 22
+        Caption = 'F(x):'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        Left = 24
+        Height = 15
+        Top = 62
+        Width = 9
+        Caption = 'a:'
+        ParentColor = False
+      end
+      object ediACerrados: TEdit
+        Left = 40
+        Height = 23
+        Top = 54
+        Width = 80
+        TabOrder = 1
+        Text = '0'
+      end
+      object Label3: TLabel
+        Left = 144
+        Height = 15
+        Top = 62
+        Width = 10
+        Caption = 'b:'
+        ParentColor = False
+      end
+      object ediBCerrados: TEdit
+        Left = 160
+        Height = 23
+        Top = 54
+        Width = 80
+        TabOrder = 2
+        Text = '2'
+      end
+      object Label4: TLabel
+        Left = 416
+        Height = 15
+        Top = 62
+        Width = 45
+        Caption = 'Método:'
+        ParentColor = False
+      end
+      object cboCerrados: TComboBox
+        Left = 464
+        Height = 23
+        Top = 54
+        Width = 136
+        ItemHeight = 15
+        TabOrder = 3
+        Text = 'Métodos'
+      end
+      object btnExecCerrados: TButton
+        Left = 528
+        Height = 25
+        Top = 24
+        Width = 75
+        Caption = 'Ejecutar'
+        OnClick = btnExecCerradosClick
+        TabOrder = 4
+      end
+      object stgCerrados: TStringGrid
+        Left = 16
+        Height = 300
+        Top = 96
+        Width = 584
+        FixedCols = 0
+        RowCount = 13
+        TabOrder = 5
+        ColWidths = (
+          112
+          112
+          112
+          112
+          115
+        )
+        Cells = (
+          5
+          0
+          0
+          'n'
+          1
+          0
+          'a'
+          2
+          0
+          'b'
+          3
+          0
+          'Xn'
+          4
+          0
+          'Error'
+        )
+      end
+      object Label6: TLabel
+        Left = 280
+        Height = 15
+        Top = 62
+        Width = 28
+        Caption = 'Error:'
+        ParentColor = False
+      end
+      object ediErrorCerrados: TEdit
+        Left = 312
+        Height = 23
+        Top = 54
+        Width = 80
+        TabOrder = 6
+        Text = '0.0000001'
+      end
+    end
+  end
+end

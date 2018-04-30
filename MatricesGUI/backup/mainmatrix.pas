@@ -120,6 +120,8 @@ type
     procedure ediIDFilasChange(Sender: TObject);
     procedure ediTransColsChange(Sender: TObject);
     procedure ediTransFilasChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
   private
 
   public
@@ -197,6 +199,16 @@ begin
      else fil:=StrToInt(fila);
      stgTransMatrixA.RowCount:=fil;
      stgTransMatrixB.ColCount:=fil;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.PageControl1Change(Sender: TObject);
+begin
+
 end;
 
 
@@ -542,6 +554,7 @@ begin
      with stgNewtonResults do begin
           RowCount:=Sequence.Count;
           Cols[1].Assign(Sequence);
+          Cols[2].Assign(errores);
           for i:=1 to RowCount-1 do
                    Cells[0,i]:=IntToStr(i);
      end;
