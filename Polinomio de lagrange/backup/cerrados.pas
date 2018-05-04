@@ -57,7 +57,7 @@ begin
 
 
   if(bolzano>0) then begin
-    //ShowMessage('a y b no cumplen teorema de bolzano');
+    ShowMessage('a y b no cumplen teorema de bolzano');
     Result:=sequence;
     exit;
   end;

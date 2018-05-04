@@ -5,8 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, TAGraph, TAFuncSeries, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Grids, ExtCtrls, ParseMath, lagrange, Cerrados;
+  Classes, SysUtils, FileUtil, TAGraph, TAFuncSeries, TASeries, Forms, Controls,
+  Graphics, Dialogs, StdCtrls, Grids, ExtCtrls, ParseMath, lagrange, Cerrados;
 
 type
 
@@ -21,6 +21,7 @@ type
     Chart1: TChart;
     Chart1FuncSeries1: TFuncSeries;
     Chart1FuncSeries2: TFuncSeries;
+    Chart1LineSeries1: TLineSeries;
     Memo1: TMemo;
     stgLagrange: TStringGrid;
     x_list,y_list: TSTringList;
@@ -43,7 +44,7 @@ type
     func: TStringList;
     minval1,minval2,maxval1,maxval2,maxtemp,mintemp: Real;
     xpoint: TStringList;
-    procedure addxpoint(xpoint: TSTringList);
+    procedure addxpoint();
 
   public
 
@@ -141,6 +142,7 @@ begin
   else minint:= minval2;
   if (maxval2<maxval1) then maxint:=maxval1
   else maxint:=maxval2;
+  Memo1.append('Intervalo: ['+FloatToStr(minint)+' , '+FloatTostr(maxint)+']');
   repeat
   points:=TStringList.Create;
   points:=closed.biseccion(minint,minint+1,0.000001,temp,temp,funcion);
@@ -148,19 +150,21 @@ begin
   xpoint.Add(points[points.Count-1]);
   end;
   points.Destroy;
-  minint:=minint+1;
-  until minint+1>maxint;
-  addpoints(xpoint);
+  minint:=minint+0.1;
+  until minint+0.1>maxint;
+  addxpoint();
 
 end;
 
-procedure TForm1.addxpoint(xpoint: TStringList);
+procedure TForm1.addxpoint();
 var
   parse: TParseMath;
   i: integer;
   temp: real;
   cad: string;
 begin
+  Chart1LineSeries1.ShowLines:=false;
+  Chart1LineSeries1.ShowPoints:=true;
   parse:=TParseMath.create();
   parse.AddVariable('x',0);
   parse.Expression:=func[0];
@@ -168,8 +172,9 @@ begin
     cad:='';
     parse.NewValue('x',StrToFloat(xpoint[i]));
     temp:=parse.Evaluate();
-    cad:=Concat('     ',FloatToStr(xpoint[i]),',',FloatToStr(temp),')');
+    cad:=Concat('     (',xpoint[i],',',FloatToStr(temp),')');
     Memo1.Append(cad);
+    Chart1LineSeries1.AddXY(StrToFloat(xpoint[i]),temp);
   end;
 
 end;
