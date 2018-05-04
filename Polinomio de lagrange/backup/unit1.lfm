@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 37
-  Height = 291
-  Top = 173
-  Width = 1286
+  Left = 248
+  Height = 582
+  Top = 107
+  Width = 944
   Caption = 'Form1'
-  ClientHeight = 291
-  ClientWidth = 1286
+  ClientHeight = 582
+  ClientWidth = 944
   OnCreate = FormCreate
   LCLVersion = '1.8.2.0'
   object ediPuntos: TEdit
@@ -27,7 +27,7 @@ object Form1: TForm1
   end
   object stgPoints: TStringGrid
     Left = 32
-    Height = 176
+    Height = 163
     Top = 72
     Width = 156
     AutoFillColumns = True
@@ -51,25 +51,25 @@ object Form1: TForm1
     )
   end
   object Label2: TLabel
-    Left = 32
+    Left = 464
     Height = 15
-    Top = 256
+    Top = 74
     Width = 80
     Caption = 'Valor a estimar:'
     ParentColor = False
   end
   object ediValue: TEdit
-    Left = 120
+    Left = 552
     Height = 23
-    Top = 256
+    Top = 74
     Width = 60
     TabOrder = 2
     Text = '0'
   end
   object btnExec: TButton
-    Left = 224
+    Left = 200
     Height = 25
-    Top = 72
+    Top = 64
     Width = 75
     Caption = 'Calcular'
     OnClick = btnExecClick
@@ -79,10 +79,11 @@ object Form1: TForm1
     Left = 200
     Height = 107
     Top = 128
-    Width = 1040
+    Width = 408
     ColCount = 2
     DefaultRowHeight = 50
     FixedRows = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
     RowCount = 2
     TabOrder = 4
     ColWidths = (
@@ -100,12 +101,92 @@ object Form1: TForm1
     )
   end
   object btnEval: TButton
-    Left = 320
+    Left = 280
     Height = 25
-    Top = 72
+    Top = 64
     Width = 75
     Caption = 'Evaluar'
     OnClick = btnEvalClick
     TabOrder = 5
+  end
+  object Chart1: TChart
+    Left = 8
+    Height = 328
+    Top = 248
+    Width = 604
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Extent.UseXMax = True
+    Extent.UseXMin = True
+    Extent.UseYMax = True
+    Extent.UseYMin = True
+    Extent.XMax = 6
+    Extent.XMin = -6
+    Extent.YMax = 10
+    Extent.YMin = -10
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Proportional = True
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    object Chart1FuncSeries1: TFuncSeries
+      Active = False
+      OnCalculate = Chart1FuncSeries1Calculate
+    end
+    object Chart1FuncSeries2: TFuncSeries
+      Active = False
+      OnCalculate = Chart1FuncSeries2Calculate
+    end
+  end
+  object Memo1: TMemo
+    Left = 640
+    Height = 536
+    Top = 16
+    Width = 270
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 7
+  end
+  object btnGraph1: TButton
+    Left = 200
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'Funcion 1'
+    OnClick = btnGraph1Click
+    TabOrder = 8
+  end
+  object btnGraph2: TButton
+    Left = 280
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'Funcion 2'
+    OnClick = btnGraph2Click
+    TabOrder = 9
+  end
+  object btnIntersec: TButton
+    Left = 368
+    Height = 25
+    Top = 96
+    Width = 96
+    Caption = 'Intersecciones'
+    OnClick = btnIntersecClick
+    TabOrder = 10
   end
 end

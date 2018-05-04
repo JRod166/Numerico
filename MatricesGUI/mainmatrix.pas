@@ -548,7 +548,7 @@ begin
      for i:=0 to cantidad-1 do begin
               fx_list.push(stgNewtFunctions.Cells[0,i]);
               var_list.push(stgNewtVariables.Cells[0,i]);
-              val_list.push(StrToInt(stgNewtValores.Cells[0,i]));
+              val_list.push(StrToFloat(stgNewtValores.Cells[0,i]));
      end;
      Sequence:=Newt.execute(fx_list,var_list,val_list,Cantidad,Error,errores);
      with stgNewtonResults do begin

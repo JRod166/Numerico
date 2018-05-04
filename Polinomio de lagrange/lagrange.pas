@@ -66,6 +66,7 @@ begin
       temp:=temp*(aux1-aux2);
     end;
   end;
+ // if (temp=0) then
   res:='/('+FloatTostr(temp)+'))';
   for i:=0 to cad.count-1 do begin
     res:=res+'*'+cad[i];

@@ -154,7 +154,6 @@ begin
   res:=TMatrices.create(fil,col);
   adj:=Adjunta(B);
   det:=Determinante(B);
-  ShowMessage('Determinante='+FloatToStr(det));
   if det=0 then begin
      ShowMessage('Matriz no invertible, determinante = 0');
      result:=res;
@@ -189,7 +188,7 @@ begin
     if ma>1 then na:=Length(B.A[0])
     else
         begin
-          result:=B.A[0,0];
+          result:=A[0,0];
           exit;
         end;
     if not (ma=na)then exit;
