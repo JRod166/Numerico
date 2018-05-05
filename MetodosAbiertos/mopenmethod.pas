@@ -5,7 +5,7 @@ unit mOpenMethod;
 interface
 
 uses
-  Classes, SysUtils, strutils, mResult, parsemath;
+  Classes, SysUtils, strutils, mResult, parsemath,Dialogs;
 type
   TOpenMethod = class
     private
@@ -35,7 +35,7 @@ begin
   fun.Expression:=funExpression;
   //fund.Expression:=funDExpression;
 
-  fun.AddVariable('x',0); fun.Evaluate();
+  fun.AddVariable('x',0); //fun.Evaluate();
   //fund.AddVariable('x',0); fund.Evaluate();
 
   //digits:= ;
@@ -48,6 +48,7 @@ begin
   resMatrix[0,0]:= IntToStr(i-1);
   resMatrix[0,1]:= FloatToStr(xn_1);
   resMatrix[0,2]:= '-';
+  showmessage(FloatToStr(xn_1));
 
   while (e < eAbs) do
   begin
@@ -75,6 +76,7 @@ begin
     resMatrix[i-1,0]:= IntToStr(i-1);
     resMatrix[i-1,1]:= FloatToStr(xn_1);
     resMatrix[i-1,2]:= FloatToStr(eAbs);
+    showmessage(FloatToStr(xn));
 
 
     xn_1:= xn;
@@ -99,7 +101,7 @@ begin
   fun.Expression:=funExpression;
   //fund.Expression:=funDExpression;
 
-  fun.AddVariable('x',0); fun.Evaluate();
+  fun.AddVariable('x',0); //fun.Evaluate();
   //fund.AddVariable('x',0); fund.Evaluate();
 
   eAbs:= 10000000;

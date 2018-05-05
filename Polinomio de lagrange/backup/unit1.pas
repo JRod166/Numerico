@@ -93,6 +93,7 @@ begin
       x_list.add('0')
       end
       else x_list.Add(Cells[0,i]);
+      showmessage(cells[0,i]+'-'+Cells[1,i]);
       if (StrToFloat(Cells[0,i])<mintemp) then mintemp:=StrToFloat(Cells[0,i]);
       if (StrToFloat(Cells[0,i])>maxtemp) then maxtemp:=StrToFloat(Cells[0,i]);
       if (Cells[1,i]='') then y_list.add('0')
@@ -150,8 +151,8 @@ begin
   xpoint.Add(points[points.Count-1]);
   end;
   points.Destroy;
-  minint:=minint+0.1;
-  until minint+0.1>maxint;
+  minint:=minint+0.5;
+  until minint+0.5>maxint;
   addxpoint();
 
 end;

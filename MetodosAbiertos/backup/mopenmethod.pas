@@ -5,7 +5,7 @@ unit mOpenMethod;
 interface
 
 uses
-  Classes, SysUtils, strutils, mResult, parsemath;
+  Classes, SysUtils, strutils, mResult, parsemath,Dialogs;
 type
   TOpenMethod = class
     private
@@ -27,17 +27,16 @@ var
   xn,xn_1,eAbs, fxn, fdxn: Double;
   i: Integer;
   resMatrix: array of array of string;
-  digits: Integer;
   ePresicionStr: string;
 begin
   fun:= TParseMath.create();
-  fund:= TParseMath.create();
+  //fund:= TParseMath.create();
 
   fun.Expression:=funExpression;
-  fund.Expression:=funDExpression;
+  //fund.Expression:=funDExpression;
 
-  fun.AddVariable('x',0); fun.Evaluate();
-  fund.AddVariable('x',0); fund.Evaluate();
+  fun.AddVariable('x',0); //fun.Evaluate();
+  //fund.AddVariable('x',0); fund.Evaluate();
 
   //digits:= ;
   ePresicionStr := getZerosStr(getPresicion(e));
@@ -49,6 +48,7 @@ begin
   resMatrix[0,0]:= IntToStr(i-1);
   resMatrix[0,1]:= FloatToStr(xn_1);
   resMatrix[0,2]:= '-';
+  showmessage(FloatToStr(xn_1));
 
   while (e < eAbs) do
   begin
@@ -76,6 +76,7 @@ begin
     resMatrix[i-1,0]:= IntToStr(i-1);
     resMatrix[i-1,1]:= FloatToStr(xn_1);
     resMatrix[i-1,2]:= FloatToStr(eAbs);
+    showmessage(FloatToStr(xn));
 
 
     xn_1:= xn;
@@ -88,14 +89,14 @@ end;
 
 function TOpenMethod.secante(x: Double; funExpression: string; e: double): TResult;
 var
-  fun, fund: TParseMath;
+  fun: TParseMath;
   xn,xn_1,eAbs, fxn, fxph, fxmh, h: Double;
   i: Integer;
   resMatrix: array of array of string;
   derivada:double;
 begin
   fun:= TParseMath.create();
-  fund:= TParseMath.create();
+  //fund:= TParseMath.create();
 
   fun.Expression:=funExpression;
   //fund.Expression:=funDExpression;
@@ -154,7 +155,6 @@ end;
 /////////////////////////
 function TOpenMethod.getPresicion(error: Double): Integer;
 var
-  digits: Integer;
   eString: string;
 begin
      eString:= FloatToStr(error);

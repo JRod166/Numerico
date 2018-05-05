@@ -5,7 +5,7 @@ unit lagrange;
 interface
 
 uses
-  Classes, SysUtils,math;
+  Classes, SysUtils,math,Dialogs;
 
 type
   TLagrange = class
@@ -36,15 +36,17 @@ var
 begin
   res:='';
   cad:=TStringList.Create;
-  if(x.Count<6) then begin
+  //if(x.Count<6) then begin
     for i:=0 to x.Count-1 do begin
-      if(StrToFloat(y[i])=0) then
-      else cad.add('(('+y[i]+')'+lagrangeano(x,y,i));
+      {if(StrToFloat(y[i])=0) then
+      else}cad.add('(('+y[i]+')'+lagrangeano(x,y,i));
+      ShowMessage(y[i]);
     end;
-  end;
+  //end;
   for i:=0 to cad.count-1 do begin
     if (i=0) then res:=cad[i]
     else res:=res+'+'+cad[i];
+    showmessage(res);
   end;
   result:=res;
 end;
@@ -66,6 +68,7 @@ begin
       temp:=temp*(aux1-aux2);
     end;
   end;
+ // if (temp=0) then
   res:='/('+FloatTostr(temp)+'))';
   for i:=0 to cad.count-1 do begin
     res:=res+'*'+cad[i];

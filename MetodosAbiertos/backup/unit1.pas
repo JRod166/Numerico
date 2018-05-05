@@ -15,11 +15,9 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Edit1: TEdit;
-    Edit2: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
     Label1: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Memo1: TMemo;
@@ -62,12 +60,12 @@ var
   i,j: integer;
 begin
     funExp:= Edit1.Text;
-    funDExp:= Edit2.Text;
+//    funDExp:= Edit2.Text;
     xn := StrToFloat(Edit3.Text);
     e := StrToFloat(Edit4.Text);
 
     //StringGrid1.RowCount:=StringGrid1.RowCount+1;
-
+    open:=TOpenMethod.Create;
     if RadioButton1.Checked then
       res := open.newton(xn,funExp,funDExp,e);
     if RadioButton2.Checked then

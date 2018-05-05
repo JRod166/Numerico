@@ -16,6 +16,7 @@ type TJacobiana = Class
     constructor create();
     Function evaluate(fx_ListI,var_ListI: TArrString; val_ListI: TArrReal; fil,col: Integer): TMatrices;
     Function derivadaparcial(fun:TParseMath; x:string;valor:Real):Real;
+    function dobleparcial(fun:TParseMath; x,y:string;valor_x,valor_y:Real):Real;
     end;
 
 implementation
@@ -42,8 +43,6 @@ begin     //fil = cant de funciones //col = cant de variables
 
   for i:=0 to columnas-1 do
       m_function.AddVariable(var_List.get(i),val_List.get(i));
-
-  showmessage('added variables');
   aux_mat:=TMatrices.create(filas,columnas);
   for i:=0 to filas-1 do begin
       m_function.Expression:=fx_List.get(i);
@@ -67,6 +66,10 @@ begin
   a:=funaux.Evaluate();
   derivadaparcial:=(a-b)/h;
   result:=derivadaparcial;
+end;
+
+function TJacobiana.dobleparcial(fun: TParseMath;x,y:string;valor:Real): Real;
+begin
 end;
 
 end.
