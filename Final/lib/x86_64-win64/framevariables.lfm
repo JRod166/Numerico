@@ -1,0 +1,60 @@
+object Frame2: TFrame2
+  Left = 0
+  Height = 424
+  Top = 0
+  Width = 617
+  Align = alRight
+  ClientHeight = 424
+  ClientWidth = 617
+  TabOrder = 0
+  DesignLeft = 325
+  DesignTop = 120
+  object Panel1: TPanel
+    Left = 0
+    Height = 295
+    Top = 0
+    Width = 70
+    Align = alLeft
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 560
+    Height = 295
+    Top = 0
+    Width = 57
+    Align = alRight
+    TabOrder = 1
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 129
+    Top = 295
+    Width = 617
+    Align = alBottom
+    Caption = 'Panel3'
+    TabOrder = 2
+  end
+  object Panel4: TPanel
+    Left = 70
+    Height = 295
+    Top = 0
+    Width = 490
+    Align = alClient
+    Caption = 'Panel4'
+    ClientHeight = 295
+    ClientWidth = 490
+    TabOrder = 3
+    object StringGrid1: TStringGrid
+      Left = 1
+      Height = 293
+      Top = 1
+      Width = 488
+      Align = alClient
+      ColCount = 0
+      FixedCols = 0
+      FixedRows = 0
+      RowCount = 0
+      TabOrder = 0
+    end
+  end
+end

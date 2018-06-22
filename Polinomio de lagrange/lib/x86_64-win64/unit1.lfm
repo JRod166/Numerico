@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 248
+  Left = 394
   Height = 582
-  Top = 107
+  Top = 84
   Width = 944
   Caption = 'Form1'
   ClientHeight = 582
@@ -110,10 +110,10 @@ object Form1: TForm1
     TabOrder = 5
   end
   object Chart1: TChart
-    Left = 8
-    Height = 328
-    Top = 248
-    Width = 604
+    Left = 496
+    Height = 672
+    Top = 8
+    Width = 852
     AxisList = <    
       item
         Marks.LabelBrush.Style = bsClear
@@ -131,13 +131,15 @@ object Form1: TForm1
     Extent.UseXMin = True
     Extent.UseYMax = True
     Extent.UseYMin = True
-    Extent.XMax = 6
-    Extent.XMin = -6
-    Extent.YMax = 10
-    Extent.YMin = -10
+    Extent.XMax = 2
+    Extent.XMin = -2
+    Extent.YMax = 1
+    Extent.YMin = -1
+    ExtentSizeLimit.UseYMin = True
+    ExtentSizeLimit.XMin = 4
+    ExtentSizeLimit.YMin = 150
     Foot.Brush.Color = clBtnFace
     Foot.Font.Color = clBlue
-    Proportional = True
     Title.Brush.Color = clBtnFace
     Title.Font.Color = clBlue
     Title.Text.Strings = (
@@ -150,14 +152,23 @@ object Form1: TForm1
     object Chart1FuncSeries2: TFuncSeries
       Active = False
       OnCalculate = Chart1FuncSeries2Calculate
+      Pen.Color = clRed
+    end
+    object Chart1FuncSeries3: TFuncSeries
+      OnCalculate = Chart1FuncSeries3Calculate
+      Pen.Color = clBlue
+    end
+    object Chart1FuncSeries4: TFuncSeries
+      OnCalculate = Chart1FuncSeries4Calculate
+      Pen.Color = clYellow
     end
     object Chart1LineSeries1: TLineSeries
     end
   end
   object Memo1: TMemo
-    Left = 640
+    Left = 40
     Height = 536
-    Top = 16
+    Top = 264
     Width = 270
     Lines.Strings = (
       'Memo1'
@@ -190,5 +201,23 @@ object Form1: TForm1
     Caption = 'Intersecciones'
     OnClick = btnIntersecClick
     TabOrder = 10
+  end
+  object btnGraph3: TButton
+    Left = 376
+    Height = 25
+    Top = 64
+    Width = 75
+    Caption = 'Funcion 3'
+    OnClick = btnGraph3Click
+    TabOrder = 11
+  end
+  object btnGraph4: TButton
+    Left = 376
+    Height = 25
+    Top = 24
+    Width = 75
+    Caption = 'Funcion 4'
+    OnClick = btnGraph4Click
+    TabOrder = 12
   end
 end

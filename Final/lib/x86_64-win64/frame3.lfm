@@ -1,0 +1,19 @@
+object Frame3: TFrame3
+  Left = 0
+  Height = 240
+  Top = 0
+  Width = 320
+  ClientHeight = 240
+  ClientWidth = 320
+  TabOrder = 0
+  DesignLeft = 203
+  DesignTop = 119
+  object Panel1: TPanel
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    TabOrder = 0
+  end
+end

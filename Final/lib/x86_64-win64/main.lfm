@@ -1,0 +1,78 @@
+object Form1: TForm1
+  Left = -4
+  Height = 632
+  Top = 157
+  Width = 1330
+  Caption = 'Form1'
+  ClientHeight = 632
+  ClientWidth = 1330
+  OnCreate = FormCreate
+  LCLVersion = '1.8.2.0'
+  object CmdBox1: TCmdBox
+    Left = 208
+    Height = 624
+    Top = 8
+    Width = 448
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    CaretColor = clWhite
+    CaretType = cartUser
+    CaretWidth = 1
+    CaretHeight = 12
+    CaretYShift = 3
+    OnInput = CmdBox1Input
+    LineCount = 1000
+    Font.Color = clSilver
+    Font.Height = -13
+    BackGroundColor = clBlack
+    TabWidth = 60
+    HistoryMax = 10
+    InputSelColor = clBlue
+    InputSelBackGround = clWhite
+    CaretInterval = 500
+    EscapeCodeType = esctCmdBox
+    GraphicalCharacterWidth = 10
+  end
+  object Panel4: TPanel
+    Left = 664
+    Height = 602
+    Top = 8
+    Width = 664
+    Caption = 'Panel4'
+    TabOrder = 2
+  end
+  object PageControl1: TPageControl
+    Left = 8
+    Height = 616
+    Top = 8
+    Width = 200
+    ActivePage = TabSheet2
+    DragMode = dmAutomatic
+    TabIndex = 0
+    TabOrder = 1
+    object TabSheet2: TTabSheet
+      Caption = 'Historial'
+      ClientHeight = 588
+      ClientWidth = 192
+      object HistoryList: TListBox
+        Left = 0
+        Height = 560
+        Top = 8
+        Width = 184
+        ItemHeight = 0
+        TabOrder = 0
+      end
+    end
+    object Variables: TTabSheet
+      Caption = 'Variables'
+      ClientHeight = 588
+      ClientWidth = 192
+      object StringGrid1: TStringGrid
+        Left = 0
+        Height = 564
+        Top = 8
+        Width = 192
+        TabOrder = 0
+      end
+    end
+  end
+end

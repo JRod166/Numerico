@@ -17,10 +17,14 @@ type
     btnExec: TButton;
     btnEval: TButton;
     btnGraph2: TButton;
+    btnGraph3: TButton;
+    btnGraph4: TButton;
     btnIntersec: TButton;
     Chart1: TChart;
     Chart1FuncSeries1: TFuncSeries;
     Chart1FuncSeries2: TFuncSeries;
+    Chart1FuncSeries3: TFuncSeries;
+    Chart1FuncSeries4: TFuncSeries;
     Chart1LineSeries1: TLineSeries;
     Memo1: TMemo;
     stgLagrange: TStringGrid;
@@ -34,9 +38,13 @@ type
     procedure btnExecClick(Sender: TObject);
     procedure btnGraph1Click(Sender: TObject);
     procedure btnGraph2Click(Sender: TObject);
+    procedure btnGraph3Click(Sender: TObject);
+    procedure btnGraph4Click(Sender: TObject);
     procedure btnIntersecClick(Sender: TObject);
     procedure Chart1FuncSeries1Calculate(const AX: Double; out AY: Double);
     procedure Chart1FuncSeries2Calculate(const AX: Double; out AY: Double);
+    procedure Chart1FuncSeries3Calculate(const AX: Double; out AY: Double);
+    procedure Chart1FuncSeries4Calculate(const AX: Double; out AY: Double);
     procedure ediPuntosChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -73,8 +81,10 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   func:=TStringList.Create;
-  func.add('');
-  func.add('');
+  func.add('1');
+  func.add('2');
+  func.add('3');
+  func.add('4');
 end;
 
 procedure TForm1.btnExecClick(Sender: TObject);
@@ -93,7 +103,6 @@ begin
       x_list.add('0')
       end
       else x_list.Add(Cells[0,i]);
-      showmessage(cells[0,i]+'-'+Cells[1,i]);
       if (StrToFloat(Cells[0,i])<mintemp) then mintemp:=StrToFloat(Cells[0,i]);
       if (StrToFloat(Cells[0,i])>maxtemp) then maxtemp:=StrToFloat(Cells[0,i]);
       if (Cells[1,i]='') then y_list.add('0')
@@ -124,6 +133,23 @@ begin
   Func[1]:=stgLagrange.Cells[1,0];
   Chart1FuncSeries2.Active:=true;
   Memo1.Append('p_2(x)='+func[1]);
+end;
+
+procedure TForm1.btnGraph3Click(Sender: TObject);
+begin
+  minval2:=mintemp;
+  maxval2:=maxtemp;
+  Chart1FuncSeries3.Active:=false;
+  Func[2]:=stgLagrange.Cells[1,0];
+  Chart1FuncSeries3.Active:=true;
+  Memo1.Append('p_2(x)='+func[1]);
+end;
+
+procedure TForm1.btnGraph4Click(Sender: TObject);
+begin
+  Chart1FuncSeries4.Active:=false;
+  Func[3]:=stgLagrange.Cells[1,0];
+  Chart1FuncSeries4.Active:=true;
 end;
 
 procedure TForm1.btnIntersecClick(Sender: TObject);
@@ -198,6 +224,27 @@ begin
   parse.Expression:=func[1];
   parse.AddVariable('x',AX);
   AY:=parse.Evaluate();
+end;
+
+procedure TForm1.Chart1FuncSeries3Calculate(const AX: Double; out AY: Double);
+var
+  parse: TParseMath;
+begin
+  parse:=TParseMath.create();
+  parse.Expression:=func[2];
+  parse.AddVariable('x',AX);
+  AY:=parse.Evaluate();
+end;
+
+procedure TForm1.Chart1FuncSeries4Calculate(const AX: Double; out AY: Double);
+var
+   parse: TParseMath;
+begin
+  parse:=TParseMath.create();
+  parse.Expression:=func[3];
+  parse.AddVariable('x',AX);
+  AY:=parse.Evaluate();
+
 end;
 
 procedure TForm1.btnEvalClick(Sender: TObject);

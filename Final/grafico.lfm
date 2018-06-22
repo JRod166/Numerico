@@ -1,0 +1,54 @@
+object Frame1: TFrame1
+  Left = 0
+  Height = 240
+  Top = 0
+  Width = 320
+  ClientHeight = 240
+  ClientWidth = 320
+  TabOrder = 0
+  DesignLeft = 907
+  DesignTop = 47
+  object Chart1: TChart
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    AutoFocus = True
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Align = alClient
+    object Chart1ConstantLine1: TConstantLine
+      Position = 0
+    end
+    object Chart1ConstantLine2: TConstantLine
+      LineStyle = lsVertical
+      Position = 0
+    end
+    object LineSeries: TLineSeries
+    end
+    object MostrarPuntos: TLineSeries
+    end
+    object AreaSeries: TAreaSeries
+    end
+    object AreaResta: TAreaSeries
+    end
+  end
+end
