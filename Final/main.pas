@@ -123,7 +123,10 @@ begin
          else begin
            final:=StringReplace(Input,' ','',[ rfReplaceAll ]); //Eliminamos los espacios en blanco
            if (Pos( '=', final ) > 0 ) then begin  //si hay = es una asignacion
-             FrameSelected:=3;
+             FrameSelected:=1;
+             if(Pos('interpolacion',final)>0)then begin
+               Mediator.grafica:=TFrame1(ActualFrame);
+             end;
              InstantFrame;
              Mediator.addVariable(final);
            end

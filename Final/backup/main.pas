@@ -123,7 +123,7 @@ begin
          else begin
            final:=StringReplace(Input,' ','',[ rfReplaceAll ]); //Eliminamos los espacios en blanco
            if (Pos( '=', final ) > 0 ) then begin  //si hay = es una asignacion
-             FrameSelected:=3;
+             FrameSelected:=1;
              InstantFrame;
              Mediator.addVariable(final);
            end
@@ -138,6 +138,7 @@ begin
     end;
   finally
     StartCommand();
+    HistoryList.Clear;
     for i:=0 to CmdBox1.HistoryCount-1 do HistoryList.Items.Add(CmdBox1.History[i]);
   end;
 

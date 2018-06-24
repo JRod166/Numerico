@@ -5,7 +5,7 @@ unit Mediator;
 interface
 
 uses
-  Classes, SysUtils,Grids,variants,Dialogs,math,ParseMathCompleto,matrices,grafico,lagrange;
+  Classes, SysUtils,Grids,variants,Dialogs,math,ParseMathCompleto,matrices,grafico,lagrange{,sisEcuDifOr};
 
 type
   matrix_str=array of array of string;
@@ -44,12 +44,7 @@ function num(valor:string):boolean;
 var
    numero:Real;
 begin
-  try
-    numero:=StrToFloat(valor);
-    result:=true;
-  except
-    result:=false;
-  end;
+  result:=TryStrToFloat(valor,numero);
 end;
 
 procedure TMediator.addVariable(Input: String);
@@ -63,12 +58,50 @@ begin
   if (Input[posIgual+1]='[') then begin
      vari:=Copy(Input,1,posIgual-1);
      valor:=Copy(Input,posIgual+1,Length(Input)-posIgual);
-     with MatrixVar do begin
-       RowCount:=RowCount+1;
-       Cells[0,RowCount-1]:=vari;
-       Cells[1,RowCount-1]:=valor;
-       Cells[2,RowCount-1]:='matriz';
+     PosVar:=-1;
+     for i:=1 to MatrixVar.RowCount-1 do begin
+      if vari=MatrixVar.cells[0,i] then
+         PosVar:=i;
+    end;
+      with MatrixVar do begin
+       case PosVar of
+            NewVar: begin
+             RowCount:=RowCount+1;
+             Cells[0,RowCount-1]:=vari;
+             Cells[1,RowCount-1]:=valor;
+             Cells[2,RowCount-1]:='matriz';
+            end
+            else begin
+             Cells[1,PosVar]:=valor;
+             Cells[2,PosVar]:='matriz';
+
+      end;
      end;
+  end;
+  end
+  else if(Pos('interpolacion',Input)=posIgual+1) then begin
+     vari:=Copy(Input,1,posIgual-1);
+     valor:=Copy(Input,posIgual+1,Length(Input)-posIgual);
+     valor:=execute(valor);
+     PosVar:=-1;
+     for i:=1 to MatrixVar.RowCount-1 do begin
+      if vari=MatrixVar.cells[0,i] then
+         PosVar:=i;
+    end;
+      with MatrixVar do begin
+       case PosVar of
+            NewVar: begin
+             RowCount:=RowCount+1;
+             Cells[0,RowCount-1]:=vari;
+             Cells[1,RowCount-1]:=valor;
+             Cells[2,RowCount-1]:='funcion';
+            end
+            else begin
+             Cells[1,PosVar]:=valor;
+             Cells[2,PosVar]:='funcion';
+      end;
+     end;
+  end;
   end
   else begin
     vari:=Copy(Input,1,posIgual-1);
@@ -414,8 +447,8 @@ var
     xlist,ylist:TStringList;
     row,coll,i,j:Integer;
     valor:Real;
-begin
 
+begin
  if ((Pos('suma',Input)>0) or (Pos('resta',Input)>0)) or (Pos('mult',Input)>0)or (Pos('powerMatrix',Input)>0)or (Pos('mulEscalar',Input)>0) then begin
     Result:=matrixoperation(Input);
    end
@@ -424,33 +457,60 @@ begin
     xlist:=TStringList.Create;
     ylist:=TStringList.Create;
     tmp:=copy(Input,Pos('(',Input)+1,Length(Input)-Pos('(',Input)-1);
-    for j:=0 to 5 do begin
+    while(Pos(',',tmp)<>0)  do begin
         aux:=copy(tmp,0,Pos(',',tmp)-1);
         xlist.Add(aux);
+        //ShowMessage('xlist added: '+aux);
         tmp:=copy(tmp,Pos(',',tmp)+1,Length(tmp)-Pos(',',tmp));
-        aux:=copy(tmp,0,Pos(',',tmp)-1);
+        if(Pos(',',tmp)=0) then aux:=tmp
+        else aux:=copy(tmp,0,Pos(',',tmp)-1);
         tmp:=copy(tmp,Pos(',',tmp)+1,Length(tmp)-Pos(',',tmp));
         ylist.Add(aux);
+        //ShowMessage('ylist added: '+aux);
     end;
-    tmp:=copy(tmp,Pos(',',tmp)+1,Length(tmp)-Pos(',',tmp));
+    if((xlist.Count<>ylist.Count)or (tmp<>aux)) then begin
+       ShowMessage('Ingresar pares ordenados (cant de variables par)');
+       result:='Error de entrada';
+       exit;
+    end ;
     Parse.setGrafica(grafica) ;
     f:=lagra.polinomio(xlist,ylist);
-//    showmessage('evaluarfuncion('''+f+''',13)');
-  //  execute('plot('''+f+''','+xlist[0]+','+xlist[5]+')' );
-    Result:=execute('evaluarfuncion('''+f+''','+tmp+')');
+    //showmessage('plot('''+f+''','+xlist[0]+','+xlist[xlist.Count-1]+')');
+    execute('plot('''+f+''','+xlist[0]+','+xlist[xlist.Count-1]+')' );
+    Result:=f;
  end
  else begin
-         Parse.Expression:=Input;
-        if validpos(Input) then begin
-           Parse.setGrafica(grafica);
-           Result:=Parse.EvaluateString();
-        end
-        else begin
-             Parse.setGrafica(grafica);
-             valor:=Parse.Evaluate();
-             Result:=FloatToStr(valor);
-           end;
-      end;
+   listVARI:=TStringList.Create;
+   i:=Pos('(',Input);
+   tmp:=Copy(Input,i+1,Length(Input)-1-i);
+   tmp:=tmp+',fin';
+   f:=copy(Input,0,i);
+   while(Pos(',',tmp)<>0) do begin
+     aux:=Copy(tmp,0,Pos(',',tmp)-1);
+     tmp:=Copy(tmp,Pos(',',tmp)+1,Length(tmp)-Pos(',',tmp));
+     j:=-1;
+     for i:=1 to matrixVar.RowCount-1 do begin
+       if aux=MatrixVar.Cells[0,i] then j:=i;
+     end;
+     if j<>-1 then listVARI.Add(MatrixVar.Cells[1,j])
+     else listVARI.Add(aux);
+   end;
+   for i:=0 to listVARI.Count-2 do begin
+     f:=f+listVARI[i]+',';
+   end;
+   f:=f+listVARI[listVARI.Count-1]+')'  ;
+   Input:=f;
+   Parse.Expression:=Input;
+   if validpos(Input) then begin
+      Parse.setGrafica(grafica);
+      Result:=Parse.EvaluateString();
+   end
+   else begin
+     Parse.setGrafica(grafica);
+     valor:=Parse.Evaluate();
+     Result:=FloatToStr(valor);
+   end;
+ end;
 end;
 
 end.

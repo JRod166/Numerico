@@ -5,7 +5,7 @@ unit ParseMathCompleto;
 interface
 
 uses
-  Classes, SysUtils,Variants, math, fpexprpars,Dialogs,grafico,Interseccion,Cerrados,mOpenMethod,Integral,EDO,MExtrapolacion,PolinomioInter;
+  Classes, SysUtils,Variants, math, fpexprpars,Dialogs,grafico,Interseccion,Cerrados,mOpenMethod,Integral,EDO;
 type
   t_matrix= array of array of real;
 type
@@ -26,7 +26,6 @@ type
       Procedure ExprIntegral( var Result: TFPExpressionResult; Const Args: TExprParameterArray);
       Procedure ExprArea( var Result: TFPExpressionResult; Const Args: TExprParameterArray);
       Procedure ExprEcuacioneDiferencialOrdinaria( var Result: TFPExpressionResult; Const Args: TExprParameterArray);
-      Procedure ExprInterpolacion( var Result: TFPExpressionResult; Const Args: TExprParameterArray);
 
 
 
@@ -560,7 +559,7 @@ begin
     else if metodo='rungekutta4' then
        Rpt:=edo.RungeKutta4()
     else if metodo='dormandPrince' then
-       Rpt:=edo.RungeKutta4()
+       Rpt:=edo.DormandPrince()
     else begin
         Rpt:=edo.RungeKutta4();end;
     TFrameGraph.ConstruirFuntion(Rpt);
@@ -611,43 +610,6 @@ begin
 
 end;
 
-
-Procedure TParseMath.ExprInterpolacion( var Result: TFPExpressionResult; Const Args: TExprParameterArray);
-var
-  nombreFile,rpt:string;
-  nDate:Integer;
-  interpolar:TPolinomio;
-  matrixDato:t_matrix;
-  //extras
-  funtiones:TStringList;
-  i,j:Integer;
-  min,max:Real;
-
-begin
-   nombreFile:=Args[0].ResString; //NOMBRE DEL ARCHIVO
-   matrixDato:=LecturaArchivo_Puntos(nombreFile); //
-   nDate:=Length(matrixDato);
-   interpolar:=TPolinomio.Create(nDate); funtiones:=TStringList.Create;
-   interpolar.setDatos(matrixDato);
-   TFrameGraph.showPoints(matrixDato);
-   rpt:=interpolar.LagrangeExecute();
-   //extra
-   funtiones.add(rpt);
-   if nDate<>0 then begin
-       min:=matrixDato[0][0];max:=matrixDato[0][0];
-       for i:=0 to nDate-1 do begin
-           if matrixDato[i][0]>max then
-              max:=matrixDato[i][0];
-       end;
-       for i:=0 to nDate-1 do begin
-           if matrixDato[i][0]<min then
-              min:=matrixDato[i][0];
-       end;
-   end else begin min:=0;max:=0; end;
-   TFrameGraph.GraficarFunciones(funtiones,min,max,0.001);
-  // TFrameGraph.GraficarFunciones(funtiones,);
-   Result.ResString:=rpt;
-end;
 Procedure TParseMath.AddFunctions();
 begin
    with FParser.Identifiers do begin
@@ -681,7 +643,6 @@ begin
        AddFunction('simpson38', 'F', 'SFFF', @ExprSimpson38);
        //EDo
        AddFunction('edo', 'S', 'SFFFFS', @ExprEcuacioneDiferencialOrdinaria);
-       AddFunction('extrapolacion', 'S', 'SS', @ExprExtrapolacion);
        AddFunction('interpolacion', 'S', 'S', @ExprInterpolacion);
        //AddFunction('rungekutta4', 'S', 'SFFFF', @ExprRungeKutta4);
       // AddFunction('power', 'F', 'FF', @ExprPower); //two float arguments 'FF' , returns float
