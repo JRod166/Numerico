@@ -75,7 +75,7 @@ begin
    y:=y0;
   // ShowMessage('yo:->'+ FloatToStr(y0));
    for i:=0 to n  do begin
-       res:=res+'('+FloatToStr(x)+','+FloatToStr(RoundTo(y,-6))+');';
+       res:=res+'('+FloatToStr(x)+','+FloatToStr(RoundTo(y,-6))+')';
        matrizXY[i][0]:=x;matrizXY[i][1]:=y;
        y:=y+h*f(x,y);
        x:=x+h;

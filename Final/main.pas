@@ -63,7 +63,6 @@ end;
 procedure TForm1.ShowCommands();
 begin
   cmdBox1.Writeln('Comandos');
-  cmdBox1.Writeln('__________');
   cmdBox1.Writeln('Matrices: (es necesario declarar las matrices)');
   cmdBox1.Writeln('suma(A,B)');
   cmdBox1.Writeln('resta(A,B)');
@@ -71,37 +70,33 @@ begin
   cmdBox1.Writeln('mulEscalar(A,numero)');
   cmdBox1.Writeln('powerMatrix(A,numero)');
   cmdBox1.Writeln('');
-  cmdBox1.Writeln('evaluarfuncion("funcion",punto_a_evaluar');
+  cmdBox1.Writeln('evaluarfuncion("funcion",punto_a_evaluar)');
   cmdBox1.Writeln('');
   cmdBox1.Writeln('Area');
-  cmdBox1.Writeln('__________');
-  cmdBox1.Writeln('area("funcion1","funcion2",min,max');
+  cmdBox1.Writeln('area("funcion1","funcion2",min,max)');
   cmdBox1.Writeln('');
-  cmdBox1.Writeln('Graficar funciones');
-  cmdBox1.Writeln('__________');
-  cmdBox1.Writeln('plot("funcion",min,max');
-  cmdBox1.Writeln('intersection("funcion1","funcion2",min,max');
+  cmdBox1.Writeln('Graficar funciones)');
+  cmdBox1.Writeln('plot("funcion",min,max)');
+  cmdBox1.Writeln('intersection("funcion1","funcion2",min,max)');
   cmdBox1.Writeln('');
   cmdBox1.Writeln('Raiz de una funcion');
-  cmdBox1.Writeln('__________');
-  cmdBox1.Writeln('rootC("funcion",inicio_intervalo,fin_intervalo,error,"metodo"');
-  cmdBox1.Writeln('1. biseccion   2.newton ');
-  cmdBox1.Writeln('rootA("funcion",valor_inicial,error,"metodo"');
+  cmdBox1.Writeln('rootC("funcion",inicio_intervalo,fin_intervalo,error,"metodo")');
+  cmdBox1.Writeln('1. biseccion   2.fp ');
+  cmdBox1.Writeln('rootA("funcion",valor_inicial,error,"metodo")');
   cmdBox1.Writeln('1. newton      2.secante');
   cmdBox1.Writeln('');
   cmdBox1.Writeln('Integrales');
-  cmdBox1.Writeln('__________');
-  cmdBox1.Writeln('integrar("funcion",inicio,fin,#Iteraciones,"metodo"');
+  cmdBox1.Writeln('integrar("funcion",inicio,fin,#Iteraciones,"metodo")');
   cmdBox1.Writeln('1. trapecio    2. simpson13    3.simpson38');
   cmdBox1.Writeln('');
   cmdBox1.Writeln('Ecuaciones Diferenciales Ordinarias');
-  cmdBox1.Writeln('__________');
-  cmdBox1.Writeln('edo("funcion_derivada",X_0,X_f,Y_0,#Iteraciones,"metodo"');
+  cmdBox1.Writeln('edo("funcion_derivada",X_0,X_f,Y_0,#Iteraciones,"metodo")');
   cmdBox1.Writeln('1. euler     2. RungeKutta4    3.dormandPrince');
   cmdBox1.Writeln('');
-  cmdBox1.Writeln('Interpolacion');
-  CmdBox1.Writeln('Ingresar x de menor a mayor');
-  cmdBox1.Writeln('interpolacion(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x_a_evaluar)');
+  cmdBox1.Writeln('Sistema de ecuaciones diferenciales');
+  cmdBox1.Writeln('secdifo("y1'' ","y2'' ",...,"yn'' ",x0,y1(x0),y2(x0),...yn(x0),xf,#iter)');
+  cmdBox1.Writeln('Lagrange');
+  cmdBox1.Writeln('lagrange(x1,y1,x2,y2,...,xn,yn)');
 end;
 
 procedure TForm1.CmdBox1Input(ACmdBox: TCmdBox; Input: string);
@@ -124,7 +119,7 @@ begin
            final:=StringReplace(Input,' ','',[ rfReplaceAll ]); //Eliminamos los espacios en blanco
            if (Pos( '=', final ) > 0 ) then begin  //si hay = es una asignacion
              FrameSelected:=1;
-             if(Pos('interpolacion',final)>0)then begin
+             if(Pos('lagrange',final)>0)then begin
                Mediator.grafica:=TFrame1(ActualFrame);
              end;
              InstantFrame;

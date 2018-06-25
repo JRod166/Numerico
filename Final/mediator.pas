@@ -5,7 +5,7 @@ unit Mediator;
 interface
 
 uses
-  Classes, SysUtils,Grids,variants,Dialogs,math,ParseMathCompleto,matrices,grafico,lagrange{,sisEcuDifOr};
+  Classes, SysUtils,Grids,variants,Dialogs,math,ParseMathCompleto,matrices,grafico,lagrange, sedo;
 
 type
   matrix_str=array of array of string;
@@ -79,7 +79,7 @@ begin
      end;
   end;
   end
-  else if(Pos('interpolacion',Input)=posIgual+1) then begin
+  else if(Pos('lagrange',Input)=posIgual+1) then begin
      vari:=Copy(Input,1,posIgual-1);
      valor:=Copy(Input,posIgual+1,Length(Input)-posIgual);
      valor:=execute(valor);
@@ -419,16 +419,16 @@ begin
         posicion:=Pos('intersection',Input);
         posicionValida:=(posicion>0) and (posicion<2);
      end
-     else if Pos('interpolacion',Input)>0 then begin
-        posicion:=Pos('interpolacion',Input);
+     else if Pos('lagrange',Input)>0 then begin
+        posicion:=Pos('lagrange',Input);
         posicionValida:=(posicion>0) and (posicion<2);
      end
      else if Pos('edo',Input)>0 then begin
         posicion:=Pos('edo',Input);
         posicionValida:=(posicion>0) and (posicion<2);
      end
-     else if Pos('sedo',Input)>0 then begin
-       posicion:=Pos('sedo',Input);
+     else if Pos('secdifo',Input)>0 then begin
+       posicion:=Pos('secdifo',Input);
        posicionValida:=(posicion>0) and (posicion<2);
      end
      else
@@ -447,12 +447,13 @@ var
     xlist,ylist:TStringList;
     row,coll,i,j:Integer;
     valor:Real;
+    sist: TSedo;
 
 begin
  if ((Pos('suma',Input)>0) or (Pos('resta',Input)>0)) or (Pos('mult',Input)>0)or (Pos('powerMatrix',Input)>0)or (Pos('mulEscalar',Input)>0) then begin
     Result:=matrixoperation(Input);
    end
- else if (Pos('interpolacion',Input)>0) then begin
+ else if (Pos('lagrange',Input)>0) then begin
     lagra:=TLagrange.Create;
     xlist:=TStringList.Create;
     ylist:=TStringList.Create;
@@ -479,8 +480,9 @@ begin
     execute('plot('''+f+''','+xlist[0]+','+xlist[xlist.Count-1]+')' );
     Result:=f;
  end
- else if (Pos('sedo',Input)>0) then begin
-
+ else if (Pos('secdifo',Input)>0) then begin
+    sist:=TSedo.create(copy(Input,Pos('(',Input)+1,Length(Input)-Pos('(',Input)-1));
+    Result:=sist.execute();
  end
  else begin
    listVARI:=TStringList.Create;

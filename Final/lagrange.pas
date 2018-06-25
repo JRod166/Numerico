@@ -13,6 +13,7 @@ type
   destructor Destroy; override;
   function lagrangeano (x,y: TStringList; posicion: integer): string;
   function polinomio (x,y:TStringList): string;
+  procedure selectsort(xlist,ylist:TStringList);
 
   end;
 
@@ -35,6 +36,8 @@ var
   cad: TStringList;
 begin
   res:='';
+  selectsort(x,y);
+//  ShowMessage(Inttostr(x.Count));
   cad:=TStringList.Create;
   //if(x.Count<6) then begin
     for i:=0 to x.Count-1 do begin
@@ -74,6 +77,30 @@ begin
     res:=res+'*'+cad[i];
   end;
   result:=res;
+end;
+
+procedure TLagrange.selectsort(xlist,ylist:TStringList);
+var
+  xaux,yaux: TStringList;
+  i,temp,j:Integer;
+begin
+  xaux:=TStringList.Create;
+  yaux:=TStringList.Create;
+  temp:=0;
+  while xlist.Count > 0 do begin
+    for i:=0 to xlist.count-1 do begin
+      if(StrToFloat(xlist[i])<=StrToFloat(xlist[temp])) then   temp:=i;
+    end;
+    xaux.Add(xlist[temp]);
+    yaux.Add(ylist[temp]);
+    xlist.Delete(temp);
+    ylist.Delete(temp);
+    temp:=0;
+  end;
+  for j:=0 to xaux.Count-1 do begin
+      xlist.add(xaux[j]);
+      ylist.add(yaux[j]);
+  end;
 end;
 
 end.

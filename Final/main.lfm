@@ -1,16 +1,16 @@
 object Form1: TForm1
   Left = -28
-  Height = 632
-  Top = 149
+  Height = 626
+  Top = 155
   Width = 1330
   Caption = 'Form1'
-  ClientHeight = 632
+  ClientHeight = 626
   ClientWidth = 1330
   OnCreate = FormCreate
   LCLVersion = '1.8.2.0'
   object CmdBox1: TCmdBox
     Left = 208
-    Height = 624
+    Height = 618
     Top = 8
     Width = 448
     Anchors = [akTop, akLeft, akRight, akBottom]
