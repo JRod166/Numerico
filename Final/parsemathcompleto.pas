@@ -53,7 +53,7 @@ begin
    FParser:= TFPExpressionParser.Create( nil );
    FParser.Builtins := [ bcMath ];
    AddFunctions();
-   h:=0.01;
+   h:=0.0001;
 
 end;
 

@@ -83,6 +83,7 @@ begin
      vari:=Copy(Input,1,posIgual-1);
      valor:=Copy(Input,posIgual+1,Length(Input)-posIgual);
      valor:=execute(valor);
+     valor=''''+valor+'''';
      PosVar:=-1;
      for i:=1 to MatrixVar.RowCount-1 do begin
       if vari=MatrixVar.cells[0,i] then

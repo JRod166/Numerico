@@ -68,14 +68,14 @@ var
 
 begin
   res:='';
-   h:=(xf-x0)/n;
+   h:=abs(xf-x0)/n;
    //ShowMessage('h:'+ FloatToStr(h));
    x:=x0;
   // ShowMessage('x0:->'+ FloatToStr(x));
    y:=y0;
   // ShowMessage('yo:->'+ FloatToStr(y0));
    for i:=0 to n  do begin
-       res:=res+'('+FloatToStr(x)+','+FloatToStr(RoundTo(y,-6))+')#13#10';
+       res:=res+'('+FloatToStr(x)+','+FloatToStr(RoundTo(y,-6))+')';
        matrizXY[i][0]:=x;matrizXY[i][1]:=y;
        y:=y+h*f(x,y);
        x:=x+h;

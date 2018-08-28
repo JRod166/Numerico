@@ -66,7 +66,7 @@ begin
  restaF:=f1+'-('+g1+')';
  intVA:=min;
  intVB:=max;
- error:=0.001;
+ error:=0.0001;
  Bisecccion:=TMetodos.Create(restaF);
  i:=0;
     while intVA<=max+h do begin

@@ -53,7 +53,7 @@ begin
    FParser:= TFPExpressionParser.Create( nil );
    FParser.Builtins := [ bcMath ];
    AddFunctions();
-   h:=0.01;
+   h:=0.0001;
 
 end;
 
@@ -643,7 +643,6 @@ begin
        AddFunction('simpson38', 'F', 'SFFF', @ExprSimpson38);
        //EDo
        AddFunction('edo', 'S', 'SFFFFS', @ExprEcuacioneDiferencialOrdinaria);
-       AddFunction('interpolacion', 'S', 'S', @ExprInterpolacion);
        //AddFunction('rungekutta4', 'S', 'SFFFF', @ExprRungeKutta4);
       // AddFunction('power', 'F', 'FF', @ExprPower); //two float arguments 'FF' , returns float
        //AddFunction('Newton', 'F', 'SF', @ExprNewton ); // Una sring argunmen and one float argument, returns float

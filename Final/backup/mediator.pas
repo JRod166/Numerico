@@ -481,7 +481,7 @@ begin
     Result:=f;
  end
  else if (Pos('secdifo',Input)>0) then begin
-    sist:=TSedo.create(copy(Input,Pos('secdifo',Input)+2,Length(Input)-Pos('secdifo',Input)-2));
+    sist:=TSedo.create(copy(Input,Pos('(',Input)+1,Length(Input)-Pos('(',Input)-1));
     Result:=sist.execute();
  end
  else begin

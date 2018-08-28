@@ -47,8 +47,10 @@ object Frame1: TFrame1
     object MostrarPuntos: TLineSeries
     end
     object AreaSeries: TAreaSeries
+      UseZeroLevel = True
     end
     object AreaResta: TAreaSeries
+      UseZeroLevel = True
     end
   end
 end
